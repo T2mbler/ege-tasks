@@ -30,7 +30,7 @@ void ifClause (char op) {
     using namespace std;
 
     if (op == '+'){
-        cout << "You have chosen the addition operation \n";
+        cout << "You have   chosen the addition operation \n";
         cout << "Enter the first number \t";
         double num1 = 0;
         cin >> num1;
@@ -78,24 +78,26 @@ void ifClause (char op) {
 }
 
 bool checkOp(char op) {
-    if (op == '+' || op == '-' || op == '/' || op == '*') {
+    if (op == '+' || op == '-' || op == '/' || op == '*' || op == 's') {
         return true;
     } else {
         return false;
     }
 }
+
 int main(){
     using namespace std;
 
-    cout << "Enter operation(+ - * /): ";
+    cout << "Enter operation(+ - * / s): ";
     char op; cin >> op;
     if (checkOp(op)) {
         ifClause(op);
     } else {
-        while (op != '+' && op != '-' && op != '/' && op != '*') {
+        cout << "Invalid operation. Try again.\n";
+        while (op != '+' && op != '-' && op != '/' && op != '*' && op != 's') {
             cin.clear();
             cin.ignore(32767, '\n');
-            cout << "Enter operation(+ - * /): ";
+            cout << "Enter operation(+ - * / s): ";
             cin >> op;
         }
     }
