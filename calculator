@@ -77,21 +77,28 @@ void ifClause (char op) {
     }
 }
 
+bool checkOp(char op) {
+    if (op == '+' || op == '-' || op == '/' || op == '*') {
+        return true;
+    } else {
+        return false;
+    }
+}
 int main(){
     using namespace std;
 
-    //tryAgain:
-    cout << "Enter the operation \n" 
-         << "'+' -- addition \n" << "'-' -- subtraction \n" << "'/' -- division \n" << "'*' -- multiplication \n" << "'s' -- square root extraction \n"; 
-    char op; 
-    cin >> op;
-    /* if (op != '+' || op != '/' || op != '-' || op != '*') {
-        cout << "What did you write?! \n";
-        exit (0);
-    } 
-    else */ ifClause(op);
-
-   
+    cout << "Enter operation(+ - * /): ";
+    char op; cin >> op;
+    if (checkOp(op)) {
+        ifClause(op);
+    } else {
+        while (op != '+' && op != '-' && op != '/' && op != '*') {
+            cin.clear();
+            cin.ignore(32767, '\n');
+            cout << "Enter operation(+ - * /): ";
+            cin >> op;
+        }
+    }
     
     return 0;
 }
