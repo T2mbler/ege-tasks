@@ -56,6 +56,7 @@ void ifClause (char op) {
         cin >> num1;
         cout << "Enter the second number\t";
         double num2 = 0;
+        cin >> num2;
         cout << "Your result \t" << div (num1, num2);  
 
     } else if (op == '*') {
@@ -88,7 +89,8 @@ bool checkOp(char op) {
 int main(){
     using namespace std;
 
-    cout << "Enter operation(+ - * / s): ";
+    cout << "Enter the operation \n" 
+         << "'+' -- addition \n" << "'-' -- subtraction \n" << "'/' -- division \n" << "'*' -- multiplication \n" << "'s' -- square root extraction \n";
     char op; cin >> op;
     if (checkOp(op)) {
         ifClause(op);
